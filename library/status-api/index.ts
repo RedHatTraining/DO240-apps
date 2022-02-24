@@ -6,10 +6,6 @@ const app = express();
 
 const codes = [200, 201, 203]
 
-const getRandomInt = (max: number) => {
-  return Math.floor(Math.random() * max);
-}
-
 app.get("/status/:code", (req, res) => {
   const code = parseInt(req.params.code);
 
