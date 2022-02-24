@@ -10,10 +10,14 @@ const getRandomInt = (max: number) => {
   return Math.floor(Math.random() * max);
 }
 
-app.get("/status", (req, res) => {
-  const selectedCode = codes[getRandomInt(3)]
+app.get("/status/:code", (req, res) => {
+  const code = parseInt(req.params.code);
 
-  res.status(selectedCode).send(`${selectedCode} status code`);
+  if (!codes.includes(code)) {
+    res.status(400).send("Status code not allowed");
+  }
+
+  res.status(code).send(`${code} status code`);
 });
 
 app.listen(PORT, "0.0.0.0", () => {
