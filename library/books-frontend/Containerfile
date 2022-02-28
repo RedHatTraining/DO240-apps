@@ -1,9 +1,5 @@
 FROM ubi8/nodejs-14
 
-# Provide the following env vars:
-# REACT_APP_BASE_URL
-# REACT_APP_ENDPOINT
-# 
 ENV REACT_APP_KEYCLOAK_URL="https://keycloak-rhsso.apps.ocp4.example.com/auth"
 ENV REACT_APP_KEYCLOAK_REALM="ad240"
 ENV REACT_APP_ENDPOINT="/books"

@@ -14,7 +14,7 @@ export default function BookCard(props) {
         <CardExpandableContent>
           <CardBody>
             <TextContent>
-              <p>Author: {author.authorName}</p>
+              <p>Author: {author.name}</p>
               <p>Year of publishing: {year}</p>
               <p>Copies available: {copies}</p>
             </TextContent>
