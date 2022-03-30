@@ -1,0 +1,16 @@
+FROM registry.access.redhat.com/ubi8/nodejs-14:1 as builder
+
+
+COPY . /opt/app-root/src/
+
+RUN npm install
+
+RUN npm ci --only-production
+
+FROM registry.access.redhat.com/ubi8/nodejs-14-minimal:1
+
+COPY --from=builder /opt/app-root/src/ /opt/app-root/src/
+
+EXPOSE 8080
+
+CMD node index.js
